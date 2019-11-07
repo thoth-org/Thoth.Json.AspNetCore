@@ -1,3 +1,3 @@
 namespace Thoth.Json.AspNetCore
 
-let todo = ""
+type Todo = class end

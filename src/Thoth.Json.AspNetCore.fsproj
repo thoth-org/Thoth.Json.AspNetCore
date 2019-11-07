@@ -14,7 +14,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="./ThothSerializer.fs" />
+    <Compile Include="./ThothJsonResultExecutor.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
