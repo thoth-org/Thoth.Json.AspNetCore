@@ -14,7 +14,9 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="./ThothJsonOptions.fs" />
     <Compile Include="./ThothJsonResultExecutor.fs" />
+    <Compile Include="./DependencyInjection/ThothJsonMvcCoreBuilderExtensions.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
