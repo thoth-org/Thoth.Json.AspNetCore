@@ -7,7 +7,8 @@
     <ProjectReference Include="..\src\Thoth.Json.AspNetCore.fsproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ThothJsonResultExecutorTest.fs" />
+    <Compile Include="./ThothJsonResultExecutorTest.fs" />
+    <Compile Include="./DependencyInjection/ThothJsonMvcCoreBuilderExtensionsTest.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

@@ -9,8 +9,11 @@ open Thoth.Json.AspNetCore
 [<Extension>]
 type ThothJsonMvcCoreBuilderExtensions () =
     [<Extension>]
-    static member AddThothJson (builder: IMvcCoreBuilder, setupOptions: Func<ThothJsonOptions>) =
+    static member AddThothJson (builder: IMvcCoreBuilder, setupOptions: Action<ThothJsonOptions>) =
         if isNull builder then raise (ArgumentNullException("builder"))
-        let options = setupOptions.Invoke()
+        if isNull setupOptions then raise (ArgumentNullException("setupOptions"))
+        let options = ThothJsonOptions()
+        setupOptions.Invoke(options)
         builder.Services.AddSingleton<ThothJsonOptions>(options) |> ignore
-        builder.Services.AddSingleton<IActionResultExecutor<JsonResult>, ThothJsonResultExecutor>()
+        builder.Services.AddSingleton<IActionResultExecutor<JsonResult>, ThothJsonResultExecutor>() |> ignore
+        builder
