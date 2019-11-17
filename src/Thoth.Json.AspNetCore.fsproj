@@ -17,6 +17,7 @@
     <Compile Include="./ThothJsonOptions.fs" />
     <Compile Include="./ThothJsonResultExecutor.fs" />
     <Compile Include="./DependencyInjection/ThothJsonMvcCoreBuilderExtensions.fs" />
+    <Compile Include="./DependencyInjection/ThothJsonMvcBuilderExtensions.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

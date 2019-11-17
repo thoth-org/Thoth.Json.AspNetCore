@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="./ThothJsonResultExecutorTest.fs" />
     <Compile Include="./DependencyInjection/ThothJsonMvcCoreBuilderExtensionsTest.fs" />
+    <Compile Include="./DependencyInjection/ThothJsonMvcBuilderExtensionsTest.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
