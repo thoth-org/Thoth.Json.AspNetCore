@@ -95,6 +95,38 @@ let tests =
       Expect.equal actualStatusCode expectedStatusCode "StatusCode equal?"
     }
 
+    testTask "should set ContentType as application/json in Response" {
+      // Arrange
+      let stream = new MemoryStream()
+      let textWriter = new StreamWriter(stream)
+      let writerFactory = Mock<IHttpResponseStreamWriterFactory>()
+      writerFactory
+        .Setup(fun w -> w.CreateWriter(stream, It.IsAny<Encoding>()))
+        .Returns(textWriter) |> ignore
+      
+      let mutable actualContentType = String.Empty
+      let expectedContentType = "application/json; charset=utf-8"
+
+      let httpContext = Mock<HttpContext>()
+      httpContext.Setup(fun ctx -> ctx.Response.Body).Returns(stream) |> ignore
+      httpContext
+        .SetupSet(fun ctx -> ctx.Response.ContentType)
+        .Callback(fun value -> actualContentType <- value) |> ignore
+
+      let actionContext = ActionContext (HttpContext = httpContext.Object)
+
+      let value = Some (Ok "Result")
+      let result = JsonResult(value)
+
+      // Act
+      let instance = ThothJsonResultExecutor(writerFactory.Object, ThothJsonOptions())
+                     :> IActionResultExecutor<JsonResult>
+      do! instance.ExecuteAsync(actionContext, result)
+
+      // Assert
+      Expect.equal actualContentType expectedContentType "ContentType equals application/json?"
+    }
+
 
     testTask "should serialize a F# type as expected" {
       // Arrange
