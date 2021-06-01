@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\Thoth.Json.AspNetCore.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="./ThothJsonResultExecutorTest.fs" />
+    <Compile Include="./DependencyInjection/ThothJsonMvcCoreBuilderExtensionsTest.fs" />
+    <Compile Include="./DependencyInjection/ThothJsonMvcBuilderExtensionsTest.fs" />
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

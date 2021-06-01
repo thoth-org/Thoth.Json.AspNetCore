@@ -1,2 +1,5 @@
 FSharp.Core
 Thoth.Json.Net
+Microsoft.AspNetCore.Mvc.Core
+Microsoft.AspNetCore.Mvc.Formatters.Json
+TaskBuilder.fs
