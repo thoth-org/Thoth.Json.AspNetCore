@@ -1,0 +1,6 @@
+FSharp.Core
+Microsoft.AspNetCore.Mvc.Core
+Moq
+Expecto
+Microsoft.NET.Test.Sdk
+YoloDev.Expecto.TestSdk
